@@ -1,0 +1,11 @@
+.right{
+	text-align: right;
+	float: right;
+	border: 1px solid;
+	border-radius: 6px;
+	margin-bottom: 10px;
+	color: #141212;
+}
+.margnt{
+	margin-top: 30px;
+}

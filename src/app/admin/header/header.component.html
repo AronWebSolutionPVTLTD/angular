@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <a class="navbar-brand" >Admin Panel</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" routerLink ="/showdata">Show Data</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink = "/showcreateuser" >Show Created Users</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink = "/createnew">Create New User</a>
+      </li>    
+    </ul>
+    <ul class="navbar-nav logout"><li class="nav-item"><a class="nav-link" (click)="logout()">Logout</a></li></ul>
+  </div>  
+</nav>

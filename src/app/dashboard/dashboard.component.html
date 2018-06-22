@@ -1,0 +1,58 @@
+<div class="container">
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6 md8">
+    <h2 class="lgnh2">Currently Status Report</h2>
+    <form #forms="ngForm" (ngSubmit)="onSubmit(form)">
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" class="form-control" name="email" disabled [(ngModel)]="form.email">
+      </div>
+
+      <div class="form-group">
+        <label for="projectname">Project Name:</label>
+        <input type="text" class="form-control" id="projectname" [(ngModel)]="form.projectname"  value="hdf" name="projectname" required>
+      </div>
+      <div class="form-group">
+        <label for="date">Date:</label>
+        <input type="date" class="form-control" id="date" [(ngModel)]="form.date"  name="date" required>
+      </div>
+
+       <div class="form-group">
+        <label for="time">Start Time:</label>
+        <input type="text" class="form-control" id="strattime" [(ngModel)]="form.strattime"  name="strattime" required>
+        <label for="time">End Time:</label>
+        <input type="text" class="form-control" id="endtime"  [(ngModel)]="form.endtime"  name="endtime" required>
+      </div>
+      
+      <button [disabled]="!forms.valid"  type="submit" class="btn btn-primary">Submit</button>
+      <p class="green">{{form.invalide}}</p>
+    </form>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+  <!-- <div class="row">
+    <table class="table table-striped">
+  <thead>
+  <tr>
+    <th class="hidden">Id</th>
+    <th>email</th>
+    <th>Project Name</th>
+    <th>Date</th>
+    <th>Start Time</th>
+    <th>End Time</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let forms of form">
+    <td class="hidden">{{forms.id}}</td>
+    <td>{{forms.email}}</td>
+    <td>{{forms.projectname}}</td>
+    <td>{{forms.date}}</td>
+    <td>{{forms.starttime}}</td>
+    <td>{{forms.endtime}}</td>
+  </tr>
+  </tbody>
+</table>
+  </div> -->
+</div>

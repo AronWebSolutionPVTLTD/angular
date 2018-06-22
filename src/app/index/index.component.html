@@ -1,0 +1,26 @@
+<div class="container">
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4 md8">
+    <h2 class="lgnh2"><i class="fa fa-user-circle" aria-hidden="true" style="font-size:90px;  margin-bottom: 15px;"></i>
+</h2>
+    <form #forms="ngForm" (ngSubmit)="onSubmit(form)">
+      <div class="form-group">
+        <label for="email"><i class="fa fa-user fasz" aria-hidden="true"></i>
+</label>
+        <input type="email" class="form-control" id="email" class="form-control" name="email"  required [(ngModel)]="form.email"  >
+      </div>
+
+      <div class="form-group">
+        <label for="pwd"><i class="fa fa-key" aria-hidden="true" style="font-size: 18px;"></i>
+</label>
+        <input type="password" class="form-control" id="pwd"  [(ngModel)]="form.pwd"  name="pwd" required>
+      </div>
+      <button type="submit" [disabled]="!forms.valid" class="btn btn-primary ">Submit</button>
+      <p class="red">{{form.invalide}}</p>
+    </form>
+    </div>
+    <div class="col-md-4"></div>
+   <!--  <app-dashboard [childMessage]="parentMessage"></app-dashboard> -->
+  </div>
+</div>
