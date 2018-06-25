@@ -2,21 +2,20 @@
   "name": "office",
   "version": "0.0.0",
   "license": "MIT",
-  "main": "server.js",
+  "main":"app.js",
   "scripts": {
     "ng": "ng",
     "start": "ng server --proxy-config proxy.conf.json",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "postinstall":"grunt sass:production && ng build --aot -prod"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
+    "@angular/animations": "^5.2.0",
     "@angular/cli": "~1.7.0",
     "@angular/compiler-cli": "^5.2.0",
-    "@angular/animations": "^5.2.0",
     "@angular/common": "^5.2.0",
     "@angular/compiler": "^5.2.0",
     "@angular/core": "^5.2.0",
@@ -37,6 +36,8 @@
     "zone.js": "^0.8.19"
   },
   "devDependencies": {
+    "@angular/cli": "~1.7.0",
+    "@angular/compiler-cli": "^5.2.0",
     "@angular/language-service": "^5.2.0",
     "@types/jasmine": "~2.8.3",
     "@types/jasminewd2": "~2.0.2",
@@ -53,5 +54,9 @@
     "ts-node": "~4.1.0",
     "tslint": "~5.9.1",
     "typescript": "^2.5.3"
+  },
+   "engines": {
+    "node": "8.11.3",
+    "npm": "5.6.0"
   }
 }
