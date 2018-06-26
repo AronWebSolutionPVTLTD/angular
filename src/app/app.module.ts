@@ -16,6 +16,8 @@ import { CreatenewComponent } from './admin/createnew/createnew.component';
 import { UpdateuserComponent } from './admin/updateuser/updateuser.component';
 import { ShowcreateuserComponent } from './admin/showcreateuser/showcreateuser.component';
 import { HeaderComponent } from './admin/header/header.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { HeaderComponent } from './admin/header/header.component';
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
