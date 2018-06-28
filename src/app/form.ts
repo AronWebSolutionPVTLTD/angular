@@ -5,7 +5,7 @@ export class Form {
   	password: string;
   	projectname: string;
   	date: string;
-  	strattime: string;
+  	starttime: string;
   	endtime: string;
   	invalide: any;
   	mode: string;

@@ -8,14 +8,13 @@ res.sendFile(path.join(__dirname+'/dist/index.html'));
 });*/
 // Start the app by listening on the default Heroku port
 var express = require('express');  
-var path = require("path");   
+var path = require("path");
+const http = require('http');   
 var bodyParser = require('body-parser');  
 var mongoose = require("mongoose");
 var Promise = mongoose.Promise = require('bluebird');
 
-/*const options = {
-  useMongoClient: true
-};*/
+
 var db = mongoose.connect('mongodb://dinesh:admin123@ds119161.mlab.com:19161/mogodata');  
   
    
@@ -32,6 +31,17 @@ app.use(function (req, res, next) {
      next();  
  });  
   
+app.use(express.static(__dirname + '/dist'));
+
+app.get('/*', function(req,res) {
+    
+res.sendFile(path.join(__dirname+'/dist/index.html'));
+});
+const port = process.env.PORT || 8080;
+app.set('port', port);
+const server = http.createServer(app);
+server.listen(port, () => console.log('Running'));
+
  var Schema = mongoose.Schema;  
 
  /*var User = mongoose.model("test", new Schema({
@@ -193,8 +203,8 @@ else
   })  
   
   
-app.listen(8080, function () {  
+/*app.listen(8080, function () {  
     
  console.log('Example app listening on port 8080!')  
-})  
+})  */
 
