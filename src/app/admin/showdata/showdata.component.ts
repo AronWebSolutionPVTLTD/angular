@@ -16,7 +16,7 @@ export class ShowdataComponent implements OnInit {
   constructor(private dataService: DataService, private router: Router, private http: Http) { }
    
   GetEmployeesData() {   
- 	this.dataService.GetEmpData().subscribe(form => this.form = form) 
+ 	this.dataService.GetEmpData().subscribe(form => this.form = form); 
  }
    
   
