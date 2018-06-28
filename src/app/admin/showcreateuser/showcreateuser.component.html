@@ -11,22 +11,23 @@
     <th>Name</th> 
     <th>email</th>
     <th>password</th>
-    <!-- <th>Action</th> -->
+    <th>Action</th> 
     <th>Action</th>
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let forms of form">
-    <td class="hidden">{{forms.id}}</td>
+  <tr *ngFor="let forms of form;let ind = index">
+    <td> {{ ind + 1 }}</td>
     <td>{{forms.name}}</td>
     <td>{{forms.email}}</td>
     <td>{{forms.password}}</td>
- <!--    <td><button class="btn btn-primary" (click)="update(forms.id)" id="{{forms.id}}"> Update </button></td> -->
-    <td><button class="iconbtv" (click)="delete(forms.id)" id="{{forms.id}}"> <i class="fa fa-trash" aria-hidden="true"></i>
- </button></td>
+     <td><span class="iconbtv" (click)="update(forms.email)" > <i class="fa fa-pencil-square-o" aria-hidden="true" style="color:blueviolet"></i></span></td>
+    <td><span class="iconbtv" (click)="delete(forms._id)" > <i class="fa fa-trash" aria-hidden="true" style="color:red"></i>
+ </span></td>
   </tr>
   </tbody>
 </table>
 </div>
 </div>
 </div>
+

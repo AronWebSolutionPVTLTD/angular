@@ -15,13 +15,13 @@ export class ShowdataComponent implements OnInit {
 	form: Form[];
   constructor(private dataService: DataService, private router: Router, private http: Http) { }
    
-  getCustomers() {   
- 	var getdata = this.dataService.getdata().then(form => this.form = form);
-  }
+  GetEmployeesData() {   
+ 	this.dataService.GetEmpData().subscribe(form => this.form = form) 
+ }
    
   
   ngOnInit() { 
-  	this.getCustomers();
+  	this.GetEmployeesData();
   }
 
 }

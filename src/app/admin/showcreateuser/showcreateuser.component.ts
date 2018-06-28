@@ -4,28 +4,31 @@ import { DataService } from '../../data.service';
 import { Router } from '@angular/router';
 import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
+
 @Component({
   selector: 'app-showcreateuser',
   templateUrl: './showcreateuser.component.html',
   styleUrls: ['./showcreateuser.component.css']
 })
 export class ShowcreateuserComponent implements OnInit {
-	form: Form[];
-   constructor(private dataService: DataService, private router: Router, private http: Http) { }
+	form = new Form;
+   constructor(private dataService: DataService, private router: Router, private http: Http)
+    { }
 
-  getCustomers() {   
- 	  this.dataService.getdata().then(form => this.form = form);
+  getEmployees() {   
+ 	  this.dataService.GetEmpData().subscribe(form => this.form = form);
   }
-  delete(formid : string): void {
-    this.dataService.delete(formid).then(() => this.getCustomers());
+  delete = function(id) {  
+    this.dataService.deleteUser(id)  
+    .subscribe(data =>   { alert(data.data) ; this.ngOnInit();}, error => this.errorMessage = error )   
   }
-  update(formid : string): void {
-    //this.dataService.update(formid).then(() => this.getCustomers());
+  update = function(emailid) {
+    sessionStorage.setItem('emailid', emailid);
      this.router.navigateByUrl('/updateuser');
 
   }
   ngOnInit() {
-  this.getCustomers();
+  this.getEmployees();
+  console.log(this.form);
   }
-
 }

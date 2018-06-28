@@ -12,16 +12,15 @@ import { ShowcreateuserComponent } from './admin/showcreateuser/showcreateuser.c
 import { HeaderComponent } from './admin/header/header.component';
 
 const routes: Routes = [
-	{ path: '', redirectTo: '/index', pathMatch: 'full' },
+	  { path: '', redirectTo: '/login', pathMatch: 'full' },
   	{ path: 'app', component: AppComponent },
-  	{ path: 'index',  component: IndexComponent },
-  	{path: 'dashboard', component: DashboardComponent },
+  	{ path: 'login',  component: IndexComponent },
+  	{ path: 'registration', component: DashboardComponent },
     { path: 'admin',  component: LoginComponent },
     { path: 'showdata',  component: ShowdataComponent },
     { path: 'createnew',  component: CreatenewComponent },
     { path: 'updateuser',  component: UpdateuserComponent },
     { path: 'showcreateuser',  component: ShowcreateuserComponent },
-
     { path: 'header',  component: HeaderComponent },
 ];
 @NgModule({

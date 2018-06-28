@@ -16,13 +16,13 @@
 
       <div class="form-group">
         <label for="password" class="control-label">Password</label>
-        <input type="password" class="form-control" id="pwd"  placeholder="Enter password" [(ngModel)]="form.pwd"  name="pwd" required>
+        <input type="password" class="form-control" id="pwd"  placeholder="Enter password" [(ngModel)]="form.password"  name="pwd" required>
       </div>
       <div class="checkbox">
        <!--  <label><input type="checkbox" name="remember"> Remember me</label> -->
       </div>
       <button type="submit" [disabled]="!forms.valid" class="btn btn-primary"> Submit</button>
-      <span class="red">{{form.invalide}}</span>
+      <p class="green">{{datas}}</p>
     </form>
     </div>
     <div class="col-md-3"></div>

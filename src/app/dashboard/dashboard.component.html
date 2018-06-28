@@ -20,18 +20,18 @@
 
        <div class="form-group">
         <label for="time">Start Time:</label>
-        <input type="text" class="form-control" id="strattime" [(ngModel)]="form.strattime"  name="strattime" required>
+        <input type="text" class="form-control" id="strattime" [(ngModel)]="form.starttime"  name="strattime" required>
         <label for="time">End Time:</label>
         <input type="text" class="form-control" id="endtime"  [(ngModel)]="form.endtime"  name="endtime" required>
       </div>
       
       <button [disabled]="!forms.valid"  type="submit" class="btn btn-primary">Submit</button>
-      <p class="green">{{form.invalide}}</p>
+      <p class="green">{{datas}}</p>
     </form>
     </div>
     <div class="col-md-3"></div>
   </div>
-  <!-- <div class="row">
+   <!-- <div class="row">
     <table class="table table-striped">
   <thead>
   <tr>
@@ -47,12 +47,12 @@
   <tr *ngFor="let forms of form">
     <td class="hidden">{{forms.id}}</td>
     <td>{{forms.email}}</td>
-    <td>{{forms.projectname}}</td>
+    <td>{{forms.password}}</td>
     <td>{{forms.date}}</td>
     <td>{{forms.starttime}}</td>
     <td>{{forms.endtime}}</td>
   </tr>
   </tbody>
 </table>
-  </div> -->
+  </div>  -->
 </div>

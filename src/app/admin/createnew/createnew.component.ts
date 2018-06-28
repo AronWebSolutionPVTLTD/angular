@@ -12,18 +12,17 @@ import { Router } from '@angular/router';
 export class CreatenewComponent implements OnInit {
 
 form = new Form;
-  submitted = false;
+datas;
   	constructor(private dataService: DataService, private router: Router) { }
   	ngOnInit() {
   	}
   	
  
  private save(): void {
- 	var getresponse = this.dataService.create(this.form).then(form => this.form = form); 
+ 	 this.dataService.createnewEmp(this.form).subscribe(data => this.datas = data.data); 
  }
  
  onSubmit(form) {
- 	 this.submitted = true;
    this.save();
  }
   

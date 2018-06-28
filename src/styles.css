@@ -24,3 +24,9 @@
 .btn{
 	width:100% !important;
 }
+.green{
+    padding-top: 10px !important;
+    font-size: 20px;
+    text-align: center;
+    color: #177517;
+}

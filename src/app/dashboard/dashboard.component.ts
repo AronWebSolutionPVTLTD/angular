@@ -1,4 +1,7 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,  EventEmitter, Output } from '@angular/core';
+import {FormGroup,FormControl,Validators,FormsModule, } from '@angular/forms';
+import {Http,Response, Headers, RequestOptions } from '@angular/http';
+import 'rxjs/add/operator/toPromise';
 import { Form } from '../form';
 import { DataService } from '../data.service';
 
@@ -11,19 +14,23 @@ export class DashboardComponent implements OnInit {
   invalide: string;
 	form = new Form;
   submitted = false;
-
+  datas;
   constructor(private dataService: DataService) { }
      email : string;
+     valbutton ="update"; 
   	ngOnInit() {
       this.email = sessionStorage.getItem('email');
       this.form.email = this.email;
+      console.log(this.email);
       
-       // this.dataService.showdashboard(this.email).then(form => this.form = form);
+        //this.dataService.GetUser().subscribe(form => this.form = form)
+       // this.dataService.GetUser().subscribe(data =>  this.Repdata = data)
       
   	}
 
  private save(): void {
- 	this.dataService.dashboard(this.form).then(form => this.form.invalide = form);
+  this.form.mode= this.valbutton; 
+ 	this.dataService.saveUser(this.form).subscribe(data => this.datas = data.data);
  }
  
  onSubmit(form) {

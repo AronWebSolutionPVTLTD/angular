@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   form = new Form;
+  datas;
   	constructor(private dataService: DataService, private router: Router) { }
   	ngOnInit() {
   	
@@ -17,8 +18,15 @@ export class LoginComponent implements OnInit {
   	
  
  private save(): void {
- 	var getresponse = this.dataService.admin(this.form).then(form => this.form.invalide = form);
-  	sessionStorage.setItem('email', this.form.email);
+ 	 this.dataService.admin(this.form).subscribe(data =>  {
+      if(data.data == "Matching"){
+        this.router.navigate(['/showdata']);
+       sessionStorage.setItem('email', this.form.email);
+      }
+      else{
+        this.datas = data.data;
+      }
+    });    
  }
  
  onSubmit(form) {

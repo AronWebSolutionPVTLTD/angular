@@ -1,10 +1,10 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { Form } from '../form';
-import { DataService } from '../data.service';
-import { Router } from '@angular/router';
+import { DataService } from '../data.service';;
 import 'rxjs/add/operator/toPromise';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import 'rxjs/add/observable/from';
+import { ActivatedRoute, Params, Router} from '@angular/router';
 
 @Component({
   selector: 'app-index',
@@ -12,7 +12,7 @@ import 'rxjs/add/observable/from';
   styleUrls: ['./index.component.css']
 })
 export class IndexComponent implements OnInit {
-
+  datas;
 	form = new Form;
   	constructor(private dataService: DataService, private router: Router) { }
 
@@ -20,8 +20,16 @@ export class IndexComponent implements OnInit {
   	}
  
  private save(): void {
-     var getresponse = this.dataService.match(this.form).then(form => console.log(this.form.invalide = form));
-        sessionStorage.setItem('email', this.form.email);
+     this.dataService.match(this.form).subscribe(data =>  {
+      if(data.data == "Matching"){
+        this.router.navigate(['/registration']);
+       sessionStorage.setItem('email', this.form.email);
+      }
+      else{
+        this.datas = data.data;
+        console.log(data.data);
+      }
+    });    
  }
 
  onSubmit(form) {
