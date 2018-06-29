@@ -17,6 +17,7 @@ export class IndexComponent implements OnInit {
   	constructor(private dataService: DataService, private router: Router) { }
 
   	ngOnInit() {
+
   	}
  
  private save(): void {
@@ -35,4 +36,7 @@ export class IndexComponent implements OnInit {
  onSubmit(form) {
      this.save();
  }  
+ onSendEmail(form){
+  console.log(this.form.email);
+ }
  }

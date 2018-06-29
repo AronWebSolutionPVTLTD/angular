@@ -1,12 +1,4 @@
 
-// Serve only the static files form the dist directory
-/*app.use(express.static(__dirname + '/dist'));
-
-app.get('/*', function(req,res) {
-    
-res.sendFile(path.join(__dirname+'/dist/index.html'));
-});*/
-// Start the app by listening on the default Heroku port
 var express = require('express');  
 var path = require("path");
 const http = require('http');   
@@ -49,21 +41,6 @@ server.listen(port, () => console.log('Running'));
 
  var Schema = mongoose.Schema;  
 
- /*var User = mongoose.model("test", new Schema({
-    name: String,
-    address: String
-}))
- var dummyUser = {
-    name: "test",
-    address: "new"
-}
-function saveData() {
-    var user = new User(dummyUser);
-    user.save(function (err) {
-      if (err) console.log(err);
-      // saved!
-    });
-}*/
 var UsersLogin = new Schema({    
  email:{ type: String, required: true },
  password: { type: String}
@@ -128,15 +105,29 @@ model.update({"email": req.body.email }, {$set:{"projectname": req.body.projectn
 })
 
 app.post("/api/createnewEmp",function(req,res){
-  var mod = new model(req.body); 
- mod.save(function(err,data){  
+  model.find().where({"email": req.body.email})
+          .count(function(err,count, data){  
       if(err){  
          res.send(err);                
       }  
-      else{        
-          res.send({data:"Record has been Inserted..!!"});  
-      }  
- });
+      else{    
+        if(count == "1")
+        {
+          res.send({data:"The email address you have entered is already registered"}); 
+        }   
+        else{
+          var mod = new model(req.body); 
+          mod.save(function(err,data){  
+            if(err){  
+               res.send(err);                
+            }  
+            else{        
+                res.send({data:"Record has been Inserted..!!"});  
+            }  
+          }); 
+        }  
+      } 
+ }); 
 })
  
  app.post("/api/getbyid",function(req,res){     
@@ -188,9 +179,4 @@ app.post("/api/createnewEmp",function(req,res){
     res.send('test route');
   });  
   
-  
-/*app.listen(8080, function () {  
-    
- console.log('Example app listening on port 8080!')  
-})  */
 

@@ -22,14 +22,17 @@ export class DashboardComponent implements OnInit {
   	ngOnInit() {
       this.email = sessionStorage.getItem('email');
       this.form.email = this.email;
-      
       if (!this.email) {
         this.router.navigate(['/']);
       }
-        //this.dataService.GetUser().subscribe(form => this.form = form)
-       // this.dataService.GetUser().subscribe(data =>  this.Repdata = data)
-      
+      this.logout();
   	}
+
+logout(){
+  sessionStorage.removeItem('email');
+    sessionStorage.clear();
+}
+
 
  private save(): void {
   this.form.mode= this.valbutton; 
