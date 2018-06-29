@@ -182,6 +182,9 @@ app.post("/api/createnewEmp",function(req,res){
                   res.send(data);  
                   }  
           });  
+  }); 
+  app.get("/api/test",function(req,res){  
+    res.send('test route');
   });  
   
   
