@@ -4,6 +4,7 @@ import { DataService } from '../../data.service';
 import { Router } from '@angular/router';
 import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-showdata',
@@ -13,7 +14,7 @@ import 'rxjs/add/operator/toPromise';
 export class ShowdataComponent implements OnInit {
 
 	form: Form[];
-  constructor(private dataService: DataService, private router: Router, private http: Http) { }
+  constructor(private dataService: DataService, private router: Router, private http: Http, public authService: AuthService) { }
    
   GetEmployeesData() {   
  	this.dataService.GetEmpData().subscribe(form => this.form = form); 
@@ -22,6 +23,11 @@ export class ShowdataComponent implements OnInit {
   
   ngOnInit() { 
   	this.GetEmployeesData();
+
+  	/*function isLoggedIn() {
+    return this.authService.isLoggedIn();
+  }*/
   }
+  
 
 }
