@@ -15,12 +15,10 @@ export class ShowcreateuserComponent implements OnInit {
    constructor(private dataService: DataService, private router: Router, private http: Http)
     { }
 
-  getEmployees() {   
- 	  this.dataService.GetEmpData().subscribe(form => this.form = form);
-  }
+ 
   delete = function(id) {  
     this.dataService.deleteUser(id)  
-    .subscribe(data =>   { alert(data.data) ; this.ngOnInit();}, error => this.errorMessage = error )   
+    .subscribe(data =>   { alert(data.data) ; this.ngOnInit();})   
   }
   update = function(emailid) {
     sessionStorage.setItem('emailid', emailid);
@@ -28,7 +26,6 @@ export class ShowcreateuserComponent implements OnInit {
 
   }
   ngOnInit() {
-  this.getEmployees();
-  console.log(this.form);
+    this.dataService.GetEmpData().subscribe(form => this.form = form);
   }
 }

@@ -13,16 +13,11 @@ import { AuthService } from '../../auth/auth.service';
 })
 export class ShowdataComponent implements OnInit {
 
-	form: Form[];
+	form = new Form;
   constructor(private dataService: DataService, private router: Router, private http: Http, public authService: AuthService) { }
-   
-  GetEmployeesData() {   
- 	this.dataService.GetEmpData().subscribe(form => this.form = form); 
- }
-   
-  
+
   ngOnInit() { 
-  	this.GetEmployeesData();
+  	this.dataService.GetEmpData().subscribe(form => this.form = form); 
 
   	/*function isLoggedIn() {
     return this.authService.isLoggedIn();

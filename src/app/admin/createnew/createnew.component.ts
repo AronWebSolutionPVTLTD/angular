@@ -16,8 +16,6 @@ datas;
   	constructor(private dataService: DataService, private router: Router) { }
   	ngOnInit() {
   	}
-  	
- 
  private save(): void {
  	 this.dataService.createnewEmp(this.form).subscribe(data => this.datas = data.data); 
  }
