@@ -7,7 +7,7 @@ var mongoose = require("mongoose");
 var Promise = mongoose.Promise = require('bluebird');
 
 
-var db = mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://dinesh:admin123@ds119161.mlab.com:19161/mogodata');  
+var db = mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://username:password@ds119161.mlab.com:19161/mogodata');  
   
    
 var app = express();  
