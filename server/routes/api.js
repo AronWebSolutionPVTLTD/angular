@@ -9,7 +9,7 @@ var Promise = mongoose.Promise = require('bluebird');
 /*const options = {
   useMongoClient: true
 };*/
-var db = mongoose.connect('mongodb://dinesh:admin123@ds119161.mlab.com:19161/mogodata', () => {
+var db = mongoose.connect('mongodb://username:pawword@ds119161.mlab.com:19161/mogodata', () => {
 	console.log("conected");
 });  
   
